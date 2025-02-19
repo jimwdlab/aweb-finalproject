@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-7 mx-auto">
+            <div class="intro">
+                <h1 class="text-center">Reactive Form</h1>
+                <p class="text-center mb-5">Created by Jimwel L. Valdez of WD-302.</p>
+            </div>
+
+            <div class="stud-form mb-5">
+                <h2 class="mb-4">Student Form</h2>
+                <form [formGroup]="formdata" (ngSubmit)="onSubmit(formdata.value)">
+                    <div class="form-group mb-3">
+                        <label for="firstname" class="mb-1">First Name</label>
+                        <input class="input-box form-control" type="text" name="firstname" formControlName="firstname"  placeholder="Dela Cruz">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="lastname" class="mb-1">Last Name</label>
+                        <input class="input-box form-control" type="text" name="lastname" formControlName="lastname" placeholder="Juan">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="studnum" class="mb-1">Student number</label>
+                        <input class="input-box form-control" type="number" name="studnum" formControlName="studnum" >
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="email" class="mb-1">HAU Email</label>
+                        <input class="input-box form-control" type="text" name="email" formControlName="email"  placeholder="jdcruz@student.hau.edu.ph">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="password" class="mb-1">Password</label>
+                        <input class="input-box form-control" type="password" name="password" formControlName="password">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="input-box btn btn-primary" type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+
+            <div *ngIf="submitted" class="stud-details">
+                <h2 class="mb-4">Great! Here are your details:</h2>
+                <p><b>Full name:</b> {{ lastname }}, {{ firstname }}</p>
+                <p><b>Student Number:</b> {{ studnum }}</p>
+                <p><b>HAU Email:</b> {{ email }}</p>
+                <p>Password hidden for your security.</p>
+            </div>
+        </div>
+    </div>
+</div>

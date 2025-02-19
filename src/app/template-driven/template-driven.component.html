@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-7 mx-auto">
+            <div class="intro">
+                <h1 class="text-center">Template-Driven Form</h1>
+                <p class="text-center mb-5">Created by Jimwel L. Valdez of WD-302.</p>
+            </div>
+
+            <div class="stud-form mb-5">
+                <h2 class="mb-4">Student Form</h2>
+                <form (ngSubmit)="onSubmit()">
+                    <div class="form-group mb-3">
+                        <label for="firstname" class="mb-1">First Name</label>
+                        <input class="input-box form-control" type="text" name="firstname" [(ngModel)]="firstname" placeholder="Dela Cruz" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="lastname" class="mb-1">Last Name</label>
+                        <input class="input-box form-control" type="text" name="lastname" [(ngModel)]="lastname" placeholder="Juan" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="studnum" class="mb-1">Student number</label>
+                        <input class="input-box form-control" type="number" name="studnum" [(ngModel)]="studnum" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="email" class="mb-1">HAU Email</label>
+                        <input class="input-box form-control" type="text" name="email" [(ngModel)]="email" placeholder="jdcruz@student.hau.edu.ph" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="password" class="mb-1">Password</label>
+                        <input class="input-box form-control" type="password" name="password" [(ngModel)]="password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="input-box btn btn-primary" type="submit" value="Submit" [disabled]="!firstname || !lastname || !studnum || !email || !password">
+                    </div>
+                </form>
+            </div>
+            
+            <div *ngIf="submitted" class="stud-details">
+                <h2 class="mb-4">Great! Here are your details:</h2>
+                <p><b>Full name:</b> {{ lastname }}, {{ firstname }}</p>
+                <p><b>Student Number:</b> {{ studnum }}</p>
+                <p><b>HAU Email:</b> {{ email }}</p>
+                <p>Password hidden for your security.</p>
+            </div>
+        </div>
+    </div>
+</div>
